@@ -1,0 +1,315 @@
+// GENERATED AUTOMATICALLY FROM 'Assets/ScriptableObjects/InputSystem.inputactions'
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+
+public class @InputSystem : IInputActionCollection, IDisposable
+{
+    public InputActionAsset asset { get; }
+    public @InputSystem()
+    {
+        asset = InputActionAsset.FromJson(@"{
+    ""name"": ""InputSystem"",
+    ""maps"": [
+        {
+            ""name"": ""PC"",
+            ""id"": ""8f1edcfa-d9fd-4d3d-9cbf-5752936d8893"",
+            ""actions"": [
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""38f3472e-3237-4872-b1e4-0c6901c30577"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""202cc9b3-64ad-43e6-8de8-a09d5babbc99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Respawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""54577801-f15e-4d8a-9149-575c290ad618"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jet"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb0c39e8-3d1e-4e44-af10-d2fedcdc9541"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cc6844fc-2b20-4b54-8cc4-8562ed25017e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84a5137c-5d2b-4b30-a86f-02077c505f67"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be6849b8-07d1-4fdd-af36-6226e7bc235a"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Respawn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0934dde2-9f79-4dc6-a54f-d04e2eead842"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Android"",
+            ""id"": ""e4c3a0e0-1dff-40ac-8621-f6e5ac0862f4"",
+            ""actions"": [
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e78b65e-d194-4ce2-9fc2-d87cc27b27e3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d2a7cf5-59a3-4638-95ce-8a96385725df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ac26670e-e6a2-4c41-bfd4-83abd2a8cc83"",
+                    ""path"": ""<Touchscreen>/press"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ed9d3db-b339-44f4-a97f-38889ebab665"",
+                    ""path"": ""<Touchscreen>/press"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        }
+    ],
+    ""controlSchemes"": []
+}");
+        // PC
+        m_PC = asset.FindActionMap("PC", throwIfNotFound: true);
+        m_PC_Crouch = m_PC.FindAction("Crouch", throwIfNotFound: true);
+        m_PC_Jump = m_PC.FindAction("Jump", throwIfNotFound: true);
+        m_PC_Respawn = m_PC.FindAction("Respawn", throwIfNotFound: true);
+        m_PC_Jet = m_PC.FindAction("Jet", throwIfNotFound: true);
+        // Android
+        m_Android = asset.FindActionMap("Android", throwIfNotFound: true);
+        m_Android_Crouch = m_Android.FindAction("Crouch", throwIfNotFound: true);
+        m_Android_Jump = m_Android.FindAction("Jump", throwIfNotFound: true);
+    }
+
+    public void Dispose()
+    {
+        UnityEngine.Object.Destroy(asset);
+    }
+
+    public InputBinding? bindingMask
+    {
+        get => asset.bindingMask;
+        set => asset.bindingMask = value;
+    }
+
+    public ReadOnlyArray<InputDevice>? devices
+    {
+        get => asset.devices;
+        set => asset.devices = value;
+    }
+
+    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+
+    public bool Contains(InputAction action)
+    {
+        return asset.Contains(action);
+    }
+
+    public IEnumerator<InputAction> GetEnumerator()
+    {
+        return asset.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
+    public void Enable()
+    {
+        asset.Enable();
+    }
+
+    public void Disable()
+    {
+        asset.Disable();
+    }
+
+    // PC
+    private readonly InputActionMap m_PC;
+    private IPCActions m_PCActionsCallbackInterface;
+    private readonly InputAction m_PC_Crouch;
+    private readonly InputAction m_PC_Jump;
+    private readonly InputAction m_PC_Respawn;
+    private readonly InputAction m_PC_Jet;
+    public struct PCActions
+    {
+        private @InputSystem m_Wrapper;
+        public PCActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Crouch => m_Wrapper.m_PC_Crouch;
+        public InputAction @Jump => m_Wrapper.m_PC_Jump;
+        public InputAction @Respawn => m_Wrapper.m_PC_Respawn;
+        public InputAction @Jet => m_Wrapper.m_PC_Jet;
+        public InputActionMap Get() { return m_Wrapper.m_PC; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PCActions set) { return set.Get(); }
+        public void SetCallbacks(IPCActions instance)
+        {
+            if (m_Wrapper.m_PCActionsCallbackInterface != null)
+            {
+                @Crouch.started -= m_Wrapper.m_PCActionsCallbackInterface.OnCrouch;
+                @Crouch.performed -= m_Wrapper.m_PCActionsCallbackInterface.OnCrouch;
+                @Crouch.canceled -= m_Wrapper.m_PCActionsCallbackInterface.OnCrouch;
+                @Jump.started -= m_Wrapper.m_PCActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PCActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PCActionsCallbackInterface.OnJump;
+                @Respawn.started -= m_Wrapper.m_PCActionsCallbackInterface.OnRespawn;
+                @Respawn.performed -= m_Wrapper.m_PCActionsCallbackInterface.OnRespawn;
+                @Respawn.canceled -= m_Wrapper.m_PCActionsCallbackInterface.OnRespawn;
+                @Jet.started -= m_Wrapper.m_PCActionsCallbackInterface.OnJet;
+                @Jet.performed -= m_Wrapper.m_PCActionsCallbackInterface.OnJet;
+                @Jet.canceled -= m_Wrapper.m_PCActionsCallbackInterface.OnJet;
+            }
+            m_Wrapper.m_PCActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @Respawn.started += instance.OnRespawn;
+                @Respawn.performed += instance.OnRespawn;
+                @Respawn.canceled += instance.OnRespawn;
+                @Jet.started += instance.OnJet;
+                @Jet.performed += instance.OnJet;
+                @Jet.canceled += instance.OnJet;
+            }
+        }
+    }
+    public PCActions @PC => new PCActions(this);
+
+    // Android
+    private readonly InputActionMap m_Android;
+    private IAndroidActions m_AndroidActionsCallbackInterface;
+    private readonly InputAction m_Android_Crouch;
+    private readonly InputAction m_Android_Jump;
+    public struct AndroidActions
+    {
+        private @InputSystem m_Wrapper;
+        public AndroidActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Crouch => m_Wrapper.m_Android_Crouch;
+        public InputAction @Jump => m_Wrapper.m_Android_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_Android; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AndroidActions set) { return set.Get(); }
+        public void SetCallbacks(IAndroidActions instance)
+        {
+            if (m_Wrapper.m_AndroidActionsCallbackInterface != null)
+            {
+                @Crouch.started -= m_Wrapper.m_AndroidActionsCallbackInterface.OnCrouch;
+                @Crouch.performed -= m_Wrapper.m_AndroidActionsCallbackInterface.OnCrouch;
+                @Crouch.canceled -= m_Wrapper.m_AndroidActionsCallbackInterface.OnCrouch;
+                @Jump.started -= m_Wrapper.m_AndroidActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_AndroidActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_AndroidActionsCallbackInterface.OnJump;
+            }
+            m_Wrapper.m_AndroidActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+            }
+        }
+    }
+    public AndroidActions @Android => new AndroidActions(this);
+    public interface IPCActions
+    {
+        void OnCrouch(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnRespawn(InputAction.CallbackContext context);
+        void OnJet(InputAction.CallbackContext context);
+    }
+    public interface IAndroidActions
+    {
+        void OnCrouch(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+}

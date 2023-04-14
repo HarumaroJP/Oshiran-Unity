@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RunHips
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 64
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 58
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 0ccfe464cd661fb4c99ac4a665491ac6, type: 3}
+    totalSpriteSurfaceArea: 3240
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a30b990006478764aaf172dd4b1a8a12, type: 3}
+  - {fileID: 21300000, guid: 3ccc89d172d2e53479b2870b492649be, type: 3}
+  - {fileID: 21300000, guid: 93ef2ec2bd0b4f94bbf89e62cec82e16, type: 3}
+  - {fileID: 21300000, guid: f6955ce2575bfc64dbeb3896ce05790c, type: 3}
+  - {fileID: 21300000, guid: 18784e0abad92fb48837ca9eb909bdcd, type: 3}
+  - {fileID: 21300000, guid: 0e1e345f52157bd42be034d7825f79ff, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 04_sprite_3
+  - 03_sprite_2
+  - 01_sprite_0
+  - 02_sprite_1
+  - 06_sprite_5
+  - 05__sprite_4
+  m_RenderDataMap: {}
+  m_Tag: RunHips
+  m_IsVariant: 0
