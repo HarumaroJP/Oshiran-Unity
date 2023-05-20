@@ -1,7 +1,9 @@
 {
-    "Volume_BGM": 0.239384725689888,
-    "Volume_SE": 0.4394474923610687,
-    "Prgs_Easy": 64,
-    "Prgs_Normal": 6,
-    "Prgs_Hard": 14
+    "Volume_BGM": 0.20000000298023225,
+    "Volume_SE": 0.4000000059604645,
+    "Prgs_Tutorial": 100,
+    "Prgs_Easy": 0,
+    "Prgs_Normal": 15,
+    "Prgs_Hard": 0,
+    "PlayOnce": true
 }

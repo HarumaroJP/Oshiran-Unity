@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 
-public class Starter : IAsyncStartable
+public class Starter : IInitializable, IAsyncStartable
 {
     readonly SaveFile saveFile;
 
@@ -22,17 +22,22 @@ public class Starter : IAsyncStartable
         DOTween.defaultAutoPlay = AutoPlay.None;
     }
 
+    public void Initialize()
+    {
+        AudioSystem.Instance.Initialize();
+    }
+
     public async UniTask StartAsync(CancellationToken cancellation)
     {
         await saveFile.Load();
 
-        AudioSystem.Instance.Initialize();
         AudioSystem.Instance.ChangeVolume(saveFile.Data.Volume_BGM, saveFile.Data.Volume_SE);
     }
 }
 
 public enum GameMode
 {
+    Tutorial,
     Easy,
     Normal,
     Hard

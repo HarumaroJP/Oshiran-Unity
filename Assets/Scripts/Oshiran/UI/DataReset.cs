@@ -18,6 +18,6 @@ public class DataReset : MonoBehaviour
     public void ResetSaveData()
     {
         saveFile.ResetData();
-        progressHistoryView.SetProgress(0, 0, 0);
+        progressHistoryView.SetProgress(0, 0, 0, 0);
     }
 }

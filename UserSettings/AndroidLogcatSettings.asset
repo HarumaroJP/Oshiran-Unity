@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "60b05e2e",
+    "m_SelectedDeviceId": "353022081625011",
     "m_SelectedPackage": {
-        "deviceId": "60b05e2e",
+        "deviceId": "353022081625011",
         "name": "com.WannaEntertainment.Oshiran",
-        "processId": 31752,
+        "processId": 29208,
         "exited": false
     },
     "m_SelectedPriority": 4,
@@ -54,6 +54,42 @@
             "deviceId": "60b05e2e",
             "name": "com.WannaEntertainment.Oshiran",
             "processId": 31752,
+            "exited": false
+        },
+        {
+            "deviceId": "353022081625011",
+            "name": "com.WannaEntertainment.Oshiran",
+            "processId": 25791,
+            "exited": true
+        },
+        {
+            "deviceId": "353022081625011",
+            "name": "com.WannaEntertainment.Oshiran",
+            "processId": 25951,
+            "exited": true
+        },
+        {
+            "deviceId": "353022081625011",
+            "name": "com.WannaEntertainment.Oshiran",
+            "processId": 26776,
+            "exited": true
+        },
+        {
+            "deviceId": "353022081625011",
+            "name": "com.WannaEntertainment.Oshiran",
+            "processId": 27563,
+            "exited": true
+        },
+        {
+            "deviceId": "353022081625011",
+            "name": "com.WannaEntertainment.Oshiran",
+            "processId": 28128,
+            "exited": true
+        },
+        {
+            "deviceId": "353022081625011",
+            "name": "com.WannaEntertainment.Oshiran",
+            "processId": 29208,
             "exited": false
         }
     ],

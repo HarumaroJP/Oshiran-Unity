@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ public class PlayerController : BaseController, IController
     [SerializeField] Rigidbody2D rig;
     [SerializeField] SpriteAtlas hipAtlas;
     [SerializeField] SpriteAtlas runAtlas;
+    [SerializeField] SpriteAnimation fireAnimation;
     [SerializeField] ParticleSystem mainJet;
     [SerializeField] ParticleSystem subJet;
     [SerializeField] ParticleSystem groundDust;
@@ -49,6 +51,8 @@ public class PlayerController : BaseController, IController
     bool m_isGround;
 
     public event Action OnDeath;
+
+    CancellationTokenSource fireAnimCanceller = new CancellationTokenSource();
 
     public void Setup()
     {
@@ -273,6 +277,8 @@ public class PlayerController : BaseController, IController
 
         if (doMove)
         {
+            fireAnimation.SpriteAnimeStart(fireAnimCanceller.Token);
+
             rig.DOMoveX(rig.position.x + deathForceOffset, deathForceDuration)
                 .SetEase(Ease.OutQuad)
                 .Play()
@@ -294,6 +300,13 @@ public class PlayerController : BaseController, IController
     public void Restart()
     {
         Enable();
+
+        fireAnimCanceller?.Cancel();
+        fireAnimCanceller?.Dispose();
+
+        fireAnimCanceller = new CancellationTokenSource();
+
+        fireAnimation.ResetSprite();
 
         rig.simulated = true;
         rig.velocity = Vector2.zero;

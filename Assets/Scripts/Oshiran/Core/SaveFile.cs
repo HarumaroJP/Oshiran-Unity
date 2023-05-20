@@ -33,12 +33,16 @@ public class SaveFile
         await SaveSystem.Save(saveData, FILENAME_CONFIG, true);
     }
 
+
     public void SetProgress(GameMode mode, int progress)
     {
         if (GetProgress(mode) > progress) return;
 
         switch (mode)
         {
+            case GameMode.Tutorial:
+                saveData.Prgs_Tutorial = progress;
+                break;
             case GameMode.Easy:
                 saveData.Prgs_Easy = progress;
                 break;
@@ -54,6 +58,8 @@ public class SaveFile
             default:
                 throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
         }
+
+        saveData.PlayOnce = true;
 
         Save().Forget();
     }
@@ -74,6 +80,8 @@ public class SaveFile
     {
         switch (mode)
         {
+            case GameMode.Tutorial:
+                return saveData.Prgs_Tutorial;
             case GameMode.Easy:
                 return saveData.Prgs_Easy;
 
@@ -89,9 +97,9 @@ public class SaveFile
     }
 
 
-    public (int easy, int normal, int hard) GetProgress()
+    public (int tutorial, int easy, int normal, int hard) GetProgress()
     {
-        return (saveData.Prgs_Easy, saveData.Prgs_Normal, saveData.Prgs_Hard);
+        return (saveData.Prgs_Tutorial, saveData.Prgs_Easy, saveData.Prgs_Normal, saveData.Prgs_Hard);
     }
 
 

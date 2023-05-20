@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -27,7 +30,7 @@ namespace Oshiran.Stage
             gameEventRelay.OnGameRestart += stageMover.OnRestart;
             stageMover.OnProgressUpdate += progressViewHandler.UpdateInGameProgress;
 
-            gameEventRelay.OnGameRestart += progressViewHandler.SwitchToInGameView;
+            gameEventRelay.OnGameRestart += OnGameRestart;
             gameEventRelay.OnGameClear += progressViewHandler.SwitchToResult;
             gameEventRelay.OnPlayerDeath += progressViewHandler.SwitchToResult;
             gameEventRelay.OnPlayerDeath += ShowResult;
@@ -35,14 +38,27 @@ namespace Oshiran.Stage
             stageMover.OnStart();
         }
 
+        CancellationTokenSource animateResultCanceller;
+
         void ShowResult()
         {
             int prevProgress = saveFile.GetProgress(gameEventRelay.gameMode);
             int progress = (int)stageMover.Progress;
 
-            progressViewHandler.AnimateResult(progress, progress > prevProgress);
+
+            animateResultCanceller = new CancellationTokenSource();
+            CancellationToken cToken = animateResultCanceller.Token;
+            progressViewHandler.AnimateResult(progress, progress > prevProgress, cToken).Forget();
 
             saveFile.SetProgress(gameEventRelay.gameMode, progress);
+        }
+
+        void OnGameRestart()
+        {
+            animateResultCanceller?.Cancel();
+            animateResultCanceller?.Dispose();
+
+            progressViewHandler.SwitchToInGameView();
         }
     }
 }

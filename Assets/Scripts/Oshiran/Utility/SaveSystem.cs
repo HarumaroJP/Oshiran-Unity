@@ -9,7 +9,13 @@ namespace Oshiran.Utility
 {
     public static class SaveSystem
     {
+        static readonly string WebGLKey = "JsonSaveData";
+
+#if UNITY_EDITOR
         static readonly string SAVEDIR = $"{Application.dataPath}/SaveData/";
+#else
+        static readonly string SAVEDIR = $"{Application.persistentDataPath}/SaveData/";
+#endif
 
         static string NameToFilePath(string name) => SAVEDIR + name + ".json";
 
@@ -20,18 +26,24 @@ namespace Oshiran.Utility
 
         public static bool DirExists(string name)
         {
-            return Directory.Exists(Application.dataPath + name);
+            return Directory.Exists(SAVEDIR + name);
         }
 
 
         public static async UniTask Save(object obj, string name, bool format = false)
         {
+            string text = obj.GetType().IsPrimitiveOrString() ? obj.ToString() : JsonUtility.ToJson(obj, format);
+
+#if UNITY_WEBGL
+            PlayerPrefs.SetString(WebGLKey, text);
+            PlayerPrefs.Save();
+            return;
+#endif
+
             if (!DirExists("SaveData"))
             {
                 Directory.CreateDirectory(SAVEDIR);
             }
-
-            string text = obj.GetType().IsPrimitiveOrString() ? obj.ToString() : JsonUtility.ToJson(obj, format);
 
             using (StreamWriter sw = new StreamWriter(NameToFilePath(name), false))
             {
@@ -69,12 +81,16 @@ namespace Oshiran.Utility
 
             try
             {
+#if UNITY_WEBGL
+                rawData = PlayerPrefs.GetString(WebGLKey);
+#else
                 using FileStream fs = new FileStream(NameToFilePath(name), FileMode.Open);
 
                 using (StreamReader sr = new StreamReader(fs))
                 {
                     rawData = await sr.ReadToEndAsync();
                 }
+#endif
             }
             catch (Exception e)
             {
@@ -88,19 +104,24 @@ namespace Oshiran.Utility
         //System.String, ScriptableObject, MonoBehaviourクラス以外で利用可能なロード機能
         public static async UniTask<T> Load<T>(string name)
         {
+            bool isPrimitive = typeof(T).IsPrimitive;
             T deserializedData = default;
 
             try
             {
+#if UNITY_WEBGL
+                string result = PlayerPrefs.GetString(WebGLKey);
+                deserializedData = isPrimitive ? GenericParser.Parse<T>(result) : JsonUtility.FromJson<T>(result);
+#else
                 using FileStream fs = new FileStream(NameToFilePath(name), FileMode.Open);
 
                 using (StreamReader sr = new StreamReader(fs))
                 {
                     string result = await sr.ReadToEndAsync();
 
-                    bool isPrimitive = typeof(T).IsPrimitive;
                     deserializedData = isPrimitive ? GenericParser.Parse<T>(result) : JsonUtility.FromJson<T>(result);
                 }
+#endif
             }
             catch (Exception e)
             {
@@ -116,6 +137,10 @@ namespace Oshiran.Utility
         {
             try
             {
+#if UNITY_WEBGL
+                string result = PlayerPrefs.GetString(WebGLKey);
+                JsonUtility.FromJsonOverwrite(result, scriptableObject);
+#else
                 using FileStream fs = new FileStream(NameToFilePath(name), FileMode.Open);
 
                 using (StreamReader sr = new StreamReader(fs))
@@ -124,6 +149,7 @@ namespace Oshiran.Utility
 
                     JsonUtility.FromJsonOverwrite(result, scriptableObject);
                 }
+#endif
             }
             catch (Exception e)
             {

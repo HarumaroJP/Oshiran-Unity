@@ -1,4 +1,6 @@
-﻿using DG.Tweening;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,21 +24,20 @@ namespace Oshiran.Stage
             progressResult.gameObject.SetActive(true);
         }
 
-        public void AnimateResult(int progress, bool isNewRecord)
+        public async UniTask AnimateResult(int progress, bool isNewRecord, CancellationToken cancellationToken)
         {
-            progressResult.DOValue(progress, 0.5f)
-                .OnComplete(() =>
-                {
-                    if (isNewRecord)
-                    {
-                        progressResult.NewRecord();
-                    }
-                    else
-                    {
-                        progressResult.NormalRecord();
-                    }
-                })
-                .Play();
+            progressResult.ResetDisplay();
+
+            await progressResult.DOValue(progress, 0.5f).Play().ToUniTask(cancellationToken: cancellationToken);
+
+            if (isNewRecord)
+            {
+                progressResult.NewRecord();
+            }
+            else
+            {
+                progressResult.NormalRecord();
+            }
         }
 
         public void UpdateInGameProgress(int progress)

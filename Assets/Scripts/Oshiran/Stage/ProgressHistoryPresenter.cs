@@ -21,8 +21,8 @@ namespace Oshiran.Stage
         {
             await UniTask.WaitUntil(() => saveFile.IsLoaded, cancellationToken: cancellation);
 
-            (int easy, int normal, int hard) progress = saveFile.GetProgress();
-            historyView.SetProgress(progress.easy, progress.normal, progress.hard);
+            (int tutorial, int easy, int normal, int hard) progress = saveFile.GetProgress();
+            historyView.SetProgress(progress.tutorial, progress.easy, progress.normal, progress.hard);
         }
     }
 }
