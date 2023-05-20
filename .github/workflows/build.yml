@@ -5,12 +5,14 @@ on:
 jobs:
   build:
     name: Run the WebGL build
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       # actions/checkout@v2 を利用して作業ディレクトリに
       # Unity プロジェクトの中身をダウンロードしてくる
       - name: Check out my unity project.
         uses: actions/checkout@v2
+        with: 
+          lfs: true
 
       # GameCI の Builder を利用して、
       # Unity プロジェクトのビルドを実行する
